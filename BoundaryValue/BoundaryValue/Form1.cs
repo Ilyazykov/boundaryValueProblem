@@ -11,7 +11,7 @@ namespace BoundaryValue
 {
     public partial class Form1 : Form
     {
-        double ksi;
+        double ksi = 0.525;
 
         Equation equation;
         BoundaryValue boundaryValue;
@@ -24,7 +24,6 @@ namespace BoundaryValue
         {
             InitializeComponent();
 
-            ksi = 0.525;
             equation = new Equation(ksi);
 
             graphic = new Graphic(numberOfSteps);
@@ -46,6 +45,12 @@ namespace BoundaryValue
             graphic.getFrom(equation, boundaryValue);
 
             drawGraphic();
+        }
+
+        private void numericUpDownNumberOfSteps_ValueChanged(object sender, EventArgs e)
+        {
+            numberOfSteps = (int)numericUpDownNumberOfSteps.Value;
+            graphic = new Graphic(numberOfSteps);
         }
     }
 }
