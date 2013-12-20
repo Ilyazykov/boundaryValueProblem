@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.graph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnToDo = new System.Windows.Forms.Button();
             this.numericUpDownNumberOfSteps = new System.Windows.Forms.NumericUpDown();
@@ -40,17 +41,22 @@
             // 
             // graph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.graph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.graph.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.graph.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.graph.Legends.Add(legend3);
             this.graph.Location = new System.Drawing.Point(12, 12);
             this.graph.Name = "graph";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "series";
-            this.graph.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "series1";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "series2";
+            this.graph.Series.Add(series5);
+            this.graph.Series.Add(series6);
             this.graph.Size = new System.Drawing.Size(760, 410);
             this.graph.TabIndex = 0;
             this.graph.Text = "chart";
@@ -69,7 +75,7 @@
             // 
             this.numericUpDownNumberOfSteps.Location = new System.Drawing.Point(779, 121);
             this.numericUpDownNumberOfSteps.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});

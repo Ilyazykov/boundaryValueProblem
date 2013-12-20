@@ -15,7 +15,8 @@ namespace BoundaryValue
 
         Equation equation;
         BoundaryValue boundaryValue;
-        Graphic graphic;
+        Graphic graphicOne;
+        Graphic graphicTwo;
 
         int numberOfSteps = 5;
 
@@ -26,31 +27,40 @@ namespace BoundaryValue
 
             equation = new Equation(ksi);
 
-            graphic = new Graphic(numberOfSteps);
+            graphicOne = new Graphic(numberOfSteps);
+            graphicTwo = new Graphic(numberOfSteps/2);
             boundaryValue = new BoundaryValue(0.0, 0.0, 1.0, 1.0);
         }
 
-        void drawGraphic()
+        void drawGraphics()
         {
-            graph.Series["series"].Points.Clear();
+            graph.Series["series1"].Points.Clear();
+            graph.Series["series2"].Points.Clear();
 
-            for (int i = 0; i < numberOfSteps + 1; i++)
+            for (int i = 0; i < graphicOne.numberOfIntervals; i++)
             {
-                graph.Series["series"].Points.AddXY(graphic.x[i], graphic.y[i]);
+                graph.Series["series1"].Points.AddXY(graphicOne.x[i], graphicOne.y[i]);
+            }
+
+            for (int i = 0; i < graphicTwo.numberOfIntervals; i++)
+            {
+                graph.Series["series2"].Points.AddXY(graphicTwo.x[i], graphicTwo.y[i]);
             }
         }
 
         private void btnToDo_Click(object sender, EventArgs e)
         {
-            graphic.getFrom(equation, boundaryValue);
+            graphicOne.getFrom(equation, boundaryValue);
+            graphicTwo.getFrom(equation, boundaryValue);
 
-            drawGraphic();
+            drawGraphics();
         }
 
         private void numericUpDownNumberOfSteps_ValueChanged(object sender, EventArgs e)
         {
             numberOfSteps = (int)numericUpDownNumberOfSteps.Value;
-            graphic = new Graphic(numberOfSteps);
+            graphicOne = new Graphic(numberOfSteps);
+            graphicTwo = new Graphic(numberOfSteps/2);
         }
     }
 }
