@@ -5,13 +5,9 @@ using System.Text;
 
 namespace BoundaryValue
 {
-    class Equation
+    class MainEquation : Equation
     {
-        public FunctionF f { get; private set; }
-        public FunctionK k { get; private set; }
-        public FunctionQ q { get; private set; }
-
-        public Equation(double ksi)
+        public MainEquation(double ksi)
         {
             f = new FunctionF(ksi);
             k = new FunctionK(ksi);

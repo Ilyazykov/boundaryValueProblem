@@ -13,7 +13,9 @@ namespace BoundaryValue
     {
         double ksi = 0.525;
 
-        Equation equation;
+        GetterListOfValues one;
+        GetterListOfValues two;
+
         BoundaryValue boundaryValue;
         Graphic graphicOne;
         Graphic graphicTwo;
@@ -25,10 +27,11 @@ namespace BoundaryValue
         {
             InitializeComponent();
 
-            equation = new Equation(ksi);
+            one = new MainEquation(ksi);
+            two = new MainEquation(ksi);
 
             graphicOne = new Graphic(numberOfSteps);
-            graphicTwo = new Graphic(numberOfSteps/2);
+            graphicTwo = new Graphic(numberOfSteps);
             boundaryValue = new BoundaryValue(0.0, 0.0, 1.0, 1.0);
         }
 
@@ -50,8 +53,8 @@ namespace BoundaryValue
 
         private void btnToDo_Click(object sender, EventArgs e)
         {
-            graphicOne.getFrom(equation, boundaryValue);
-            graphicTwo.getFrom(equation, boundaryValue);
+            graphicOne.getFrom(one, boundaryValue);
+            graphicTwo.getFrom(two, boundaryValue);
 
             drawGraphics();
         }
@@ -60,7 +63,23 @@ namespace BoundaryValue
         {
             numberOfSteps = (int)numericUpDownNumberOfSteps.Value;
             graphicOne = new Graphic(numberOfSteps);
-            graphicTwo = new Graphic(numberOfSteps/2);
+            graphicTwo = new Graphic(numberOfSteps);
+        }
+
+        private void radioButtonMain_CheckedChanged(object sender, EventArgs e)
+        {
+            one = new MainEquation(ksi);
+            two = new MainEquation(ksi);
+            graph.Series["series1"].LegendText = "Обычный шаг";
+            graph.Series["series2"].LegendText = "Половинный шаг";
+        }
+
+        private void radioButtonTestOne_CheckedChanged(object sender, EventArgs e)
+        {
+            one = new TestOneEquation(ksi);
+            two = new FunctionYStar(ksi);
+            graph.Series["series1"].LegendText = "Аппроксимация";
+            graph.Series["series2"].LegendText = "Реальная функция";
         }
     }
 }

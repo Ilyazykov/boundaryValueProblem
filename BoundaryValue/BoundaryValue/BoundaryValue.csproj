@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Equations\Equation.cs" />
+    <Compile Include="Equations\GetterListOfValues.cs" />
+    <Compile Include="Equations\TestOneEquation.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,11 +57,15 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions\BoundaryValue.cs" />
-    <Compile Include="Functions\Equation.cs" />
+    <Compile Include="Equations\MainEquation.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Functions\FunctionF.cs" />
+    <Compile Include="Functions\FunctionFStar.cs" />
     <Compile Include="Functions\FunctionK.cs" />
+    <Compile Include="Functions\FunctionKStar.cs" />
     <Compile Include="Functions\FunctionQ.cs" />
+    <Compile Include="Functions\FunctionQStar.cs" />
+    <Compile Include="Equations\FunctionYStar.cs" />
     <Compile Include="Graphic\Graphic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
