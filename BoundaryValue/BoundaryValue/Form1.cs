@@ -40,12 +40,12 @@ namespace BoundaryValue
             graph.Series["series1"].Points.Clear();
             graph.Series["series2"].Points.Clear();
 
-            for (int i = 0; i < graphicOne.numberOfIntervals; i++)
+            for (int i = 0; i <= graphicOne.numberOfIntervals; i++)
             {
                 graph.Series["series1"].Points.AddXY(graphicOne.x[i], graphicOne.y[i]);
             }
 
-            for (int i = 0; i < graphicTwo.numberOfIntervals; i++)
+            for (int i = 0; i <= graphicTwo.numberOfIntervals; i++)
             {
                 graph.Series["series2"].Points.AddXY(graphicTwo.x[i], graphicTwo.y[i]);
             }
