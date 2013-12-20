@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BoundaryValue.Functions
+namespace BoundaryValue
 {
     class FunctionF : Function
     {

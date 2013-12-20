@@ -42,20 +42,20 @@
             this.graph.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.graph.Legends.Add(legend1);
-            this.graph.Location = new System.Drawing.Point(12, 11);
+            this.graph.Location = new System.Drawing.Point(12, 12);
             this.graph.Name = "graph";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "series";
             this.graph.Series.Add(series1);
-            this.graph.Size = new System.Drawing.Size(441, 260);
+            this.graph.Size = new System.Drawing.Size(760, 410);
             this.graph.TabIndex = 0;
             this.graph.Text = "chart";
             // 
             // btnToDo
             // 
-            this.btnToDo.Location = new System.Drawing.Point(460, 92);
+            this.btnToDo.Location = new System.Drawing.Point(778, 195);
             this.btnToDo.Name = "btnToDo";
             this.btnToDo.Size = new System.Drawing.Size(88, 41);
             this.btnToDo.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 323);
+            this.ClientSize = new System.Drawing.Size(878, 461);
             this.Controls.Add(this.btnToDo);
             this.Controls.Add(this.graph);
             this.Name = "Form1";

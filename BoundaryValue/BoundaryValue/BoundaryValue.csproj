@@ -53,10 +53,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions\BoundaryValue.cs" />
+    <Compile Include="Functions\Equation.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Functions\FunctionF.cs" />
     <Compile Include="Functions\FunctionK.cs" />
     <Compile Include="Functions\FunctionQ.cs" />
+    <Compile Include="Graphic\Graphic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
