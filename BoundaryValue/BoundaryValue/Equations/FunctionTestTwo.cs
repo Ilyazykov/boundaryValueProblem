@@ -16,22 +16,22 @@ namespace BoundaryValue
 
         public override List<double> getValues(BoundaryValue boundaryValue, int numberOfIntervals)
         {
-            double[] x = new double[numberOfIntervals + 1];
-            double[] y = new double[numberOfIntervals + 1];
+        double[] x = new double[numberOfIntervals + 1];
+        double[] y = new double[numberOfIntervals + 1];
 
-            double step = (boundaryValue.endX - boundaryValue.beginX) / numberOfIntervals;
-            for (int i = 0; i <= numberOfIntervals; i++)
-            {
-                x[i] = boundaryValue.beginX + i * step;
-            }
+        double step = (boundaryValue.endX - boundaryValue.beginX) / numberOfIntervals;
+        for (int i = 0; i <= numberOfIntervals; i++)
+        {
+            x[i] = boundaryValue.beginX + i * step;
+        }
 
-            for (int i = 0; i <= numberOfIntervals; i++)
-            {
-                y[i] = getValue(x[i]);
-            }
+        for (int i = 0; i <= numberOfIntervals; i++)
+        {
+            y[i] = getValue(x[i]);
+        }
 
-            List<double> res = new List<double>(y);
-            return res;
+        List<double> res = new List<double>(y);
+        return res;
         }
     }
 }
