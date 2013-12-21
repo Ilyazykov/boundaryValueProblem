@@ -8,12 +8,12 @@ namespace BoundaryValue
     class FunctionK : Function
     {
         double ksi;
-        double numberOfStep;
+        double numberOfIntervals;
 
-        public FunctionK(double ksi, double numberOfStep = 100)
+        public FunctionK(double ksi, double numberOfStep = 5)
         {
             this.ksi = ksi;
-            this.numberOfStep = numberOfStep;
+            this.numberOfIntervals = numberOfStep;
         }
 
         public override double getValue(double x)
@@ -27,31 +27,36 @@ namespace BoundaryValue
             throw new NotImplementedException();
         }
 
+        double k1(double x)
+        {
+            return Math.Exp(x * x);
+        }
+
         public override double integrateDevidedOneIntoFunction(double from, double to)
         {
-            if (to < ksi)
+            if (to <= ksi)
             {
-                double dx = (to - from) / numberOfStep;
+                double dx = (to - from) / numberOfIntervals;
 
                 double sum = 0;
-                for (double x = from; x < to-dx; x += dx)
+                for (double x = from; x < to-dx+dx/2; x += dx)
                 {
-                    sum += ( Math.Exp(x * x) + Math.Exp((x+1)*(x+1)) ) * dx / 2;
+                    sum += (k1(x) + k1(x+dx)) * dx / 2;
                 }
                 return sum;
             }
-            else if (from > ksi)
+            else if (from >= ksi)
             {
-                return Math.Log((to+1)/(from+1), Math.E);
+                return Math.Log((to + 1) / (from + 1), Math.E);
             }
-            else 
+            else
             {
-                double dx = (to - ksi) / numberOfStep;
+                double dx = (ksi - from) / numberOfIntervals;
 
                 double sum = 0;
-                for (double x = from; x <= ksi-dx; x += dx)
+                for (double x = from; x <= ksi - dx+dx/2; x += dx)
                 {
-                    sum += (Math.Exp(x * x) + Math.Exp((x + 1) * (x + 1))) * dx / 2;
+                    sum += (k1(x) + k1(x + dx)) * dx / 2;
                 }
 
                 sum += Math.Log((to + 1) / (ksi + 1), Math.E);
