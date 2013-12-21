@@ -8,12 +8,10 @@ namespace BoundaryValue
     class FunctionKStar : Function
     {
         double ksi;
-        double numberOfStep;
 
-        public FunctionKStar(double ksi, double numberOfStep = 100)
+        public FunctionKStar(double ksi)
         {
             this.ksi = ksi;
-            this.numberOfStep = numberOfStep;
         }
 
         public override double getValue(double x)
