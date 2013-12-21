@@ -58,6 +58,29 @@ namespace BoundaryValue
 
             drawGraphics();
             getMax();
+            fillTable();
+        }
+
+        private void fillTable()
+        {
+            dataGrid.RowCount = graphicOne.numberOfIntervals + 1;
+
+            for (int i = 0; i < graphicOne.numberOfIntervals+1; ++i)
+            {
+                dataGrid.Rows[i].Cells[0].Value = i;
+                dataGrid.Rows[i].Cells[1].Value = graphicOne.x[i];
+                dataGrid.Rows[i].Cells[2].Value = graphicOne.y[i];
+                if (radioButton1.Checked)
+                {
+                    dataGrid.Rows[i].Cells[3].Value = graphicTwo.y[i*2];
+                    dataGrid.Rows[i].Cells[4].Value = Math.Abs(graphicOne.y[i] - graphicTwo.y[i*2]);
+                }
+                else
+                {
+                    dataGrid.Rows[i].Cells[3].Value = graphicTwo.y[i];
+                    dataGrid.Rows[i].Cells[4].Value = Math.Abs(graphicOne.y[i] - graphicTwo.y[i]);
+                }   
+            }
         }
 
         private void getMax()
