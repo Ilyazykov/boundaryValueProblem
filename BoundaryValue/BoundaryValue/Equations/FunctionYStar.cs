@@ -37,17 +37,18 @@ namespace BoundaryValue
             b2 = f2 / q2;
 
             double c21t1 = Math.Exp(-a1 * ksi) - Math.Exp(a1 * ksi);
-            double c22t1 = Math.Exp(a2 * (ksi - 2)) - Math.Exp(-a2 * ksi);
-            double c21t2 = q1 * (Math.Exp(a1 * ksi) + Math.Exp(-a1 * ksi));
-            double c22t2 = q2 * (Math.Exp(a2 * (ksi - 2)) + Math.Exp(-a2 * ksi));
+            double c22t1 = Math.Exp(-2 * a2) * Math.Exp(a2 * ksi) - Math.Exp(-a2 * ksi);
             double t1 = Math.Exp(a2 * (ksi - 1)) + b2 - b2 * Math.Exp(a2 * (ksi - 1)) - b1 + b1 * Math.Exp(a1 * ksi);
+
+            double c21t2 = q1 * (Math.Exp(a1 * ksi) + Math.Exp(-a1 * ksi));
+            double c22t2 = - q2 * (Math.Exp(a2 * (ksi - 2)) + Math.Exp(-a2 * ksi));
             double t2 = Math.Exp(a2 * (ksi - 1)) * (f2 - q2) - f1 * Math.Exp(a1 * ksi);
 
             c21 = (t1 * c22t2 - t2 * c22t1) / (c21t1 * c22t2 - c21t2 * c22t1);
             c22 = (c21t1 * t2 - c21t2 * t1) / (c21t1 * c22t2 - c21t2 * c22t1);
 
-            c11 = -(b1 + c21);
-            c12 = (1 - b2 - c22 * Math.Exp(-a2)) / Math.Exp(a2);
+            c11 = - b1 - c21;
+            c12 = (nu2 - b2 - c22 * Math.Exp(-a2)) * Math.Exp(-a2);
         }
 
         public double getValue(double x)
