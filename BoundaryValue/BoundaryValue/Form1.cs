@@ -30,8 +30,8 @@ namespace BoundaryValue
             one = new MainEquation(ksi);
             two = new MainEquation(ksi);
 
-            graphicOne = new Graphic(numberOfSteps);
-            graphicTwo = new Graphic(numberOfSteps);
+            graphicOne = new Graphic(5);
+            graphicTwo = new Graphic(10);
             boundaryValue = new BoundaryValue(0.0, 0.0, 1.0, 1.0);
         }
 
@@ -57,19 +57,40 @@ namespace BoundaryValue
             graphicTwo.getFrom(two, boundaryValue);
 
             drawGraphics();
+            getMax();
+        }
+
+        private void getMax()
+        {
+            Tuple<double,double> temp = graphicOne.getMax(graphicTwo);
+            labelMaxErrorValue.Text = temp.Item2.ToString();
+            labelPointMaxErrorValue.Text = temp.Item1.ToString();
         }
 
         private void numericUpDownNumberOfSteps_ValueChanged(object sender, EventArgs e)
         {
             numberOfSteps = (int)numericUpDownNumberOfSteps.Value;
+
             graphicOne = new Graphic(numberOfSteps);
-            graphicTwo = new Graphic(numberOfSteps);
+
+            if (radioButton1.Checked)
+            {
+                graphicTwo = new Graphic(numberOfSteps * 2);
+            }
+            else
+            {
+                graphicTwo = new Graphic(numberOfSteps);
+            }
         }
 
         private void radioButtonMain_CheckedChanged(object sender, EventArgs e)
         {
             one = new MainEquation(ksi);
             two = new MainEquation(ksi);
+
+            graphicOne = new Graphic(numberOfSteps);
+            graphicTwo = new Graphic(numberOfSteps*2);
+
             graph.Series["series1"].LegendText = "Обычный шаг";
             graph.Series["series2"].LegendText = "Половинный шаг";
         }
@@ -78,6 +99,10 @@ namespace BoundaryValue
         {
             one = new TestOneEquation(ksi);
             two = new FunctionYStar(ksi);
+
+            graphicOne = new Graphic(numberOfSteps);
+            graphicTwo = new Graphic(numberOfSteps);
+
             graph.Series["series1"].LegendText = "Аппроксимация";
             graph.Series["series2"].LegendText = "Реальная функция";
         }
@@ -86,6 +111,10 @@ namespace BoundaryValue
         {
             one = new TestTwoEquation();
             two = new FunctionTestTwo();
+
+            graphicOne = new Graphic(numberOfSteps);
+            graphicTwo = new Graphic(numberOfSteps);
+
             graph.Series["series1"].LegendText = "Аппроксимация";
             graph.Series["series2"].LegendText = "Реальная функция";
         }

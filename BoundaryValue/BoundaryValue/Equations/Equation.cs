@@ -31,13 +31,13 @@ namespace BoundaryValue
 
             for (int i = 1; i < numberOfIntervals; i++)
             {
-
-                d[i] = (q.integrateFuncton(x[i] + step / 2, x[i] - step / 2)) / step;
-                fi[i] = (f.integrateFuncton(x[i] + step / 2, x[i] - step / 2)) / step;
+                d[i] = (q.integrateFuncton(x[i] - (step / 2), x[i] + (step / 2)) ) / step;
+                fi[i] = (f.integrateFuncton(x[i] - (step / 2), x[i] + (step / 2)) ) / step;
                 a[i] = step / (k.integrateDevidedOneIntoFunction(x[i - 1], x[i]));
             }
             a[numberOfIntervals] = step / (k.integrateDevidedOneIntoFunction(x[numberOfIntervals - 1], x[numberOfIntervals]));
 
+            ////////
             y[0] = boundaryValue.beginY;
             y[numberOfIntervals] = boundaryValue.endY;
 
