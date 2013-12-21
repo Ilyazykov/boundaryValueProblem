@@ -81,5 +81,13 @@ namespace BoundaryValue
             graph.Series["series1"].LegendText = "Аппроксимация";
             graph.Series["series2"].LegendText = "Реальная функция";
         }
+
+        private void radioButtonTestTwo_CheckedChanged(object sender, EventArgs e)
+        {
+            one = new TestTwoEquation();
+            two = new FunctionTestTwo();
+            graph.Series["series1"].LegendText = "Аппроксимация";
+            graph.Series["series2"].LegendText = "Реальная функция";
+        }
     }
 }

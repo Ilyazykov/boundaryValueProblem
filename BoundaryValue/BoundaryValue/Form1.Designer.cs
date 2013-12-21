@@ -115,6 +115,7 @@
             this.radioButtonTestTwo.TabIndex = 2;
             this.radioButtonTestTwo.Text = "Тестовая 2";
             this.radioButtonTestTwo.UseVisualStyleBackColor = true;
+            this.radioButtonTestTwo.CheckedChanged += new System.EventHandler(this.radioButtonTestTwo_CheckedChanged);
             // 
             // radioButtonTestOne
             // 
